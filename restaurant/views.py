@@ -22,3 +22,9 @@ class PizzaCreateAPIView(generics.CreateAPIView):
     queryset = Pizza.objects.all()
     serializer_class = PizzaCreateSerializer
     permission_classes = [permissions.IsAdminUser]
+
+
+class PizzaUpdateAPIView(generics.UpdateAPIView):
+    queryset = Pizza.objects.all()
+    serializer_class = PizzaCreateSerializer
+    permission_classes = [permissions.IsAdminUser]

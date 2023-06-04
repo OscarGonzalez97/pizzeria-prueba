@@ -36,3 +36,16 @@ class PizzaCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pizza
         fields = ('nombre', 'precio', 'activo', 'ingredientes')
+
+    def update(self, instance, validated_data):
+        instance.nombre = validated_data.get('nombre', instance.nombre)
+        instance.precio = validated_data.get('precio', instance.precio)
+        instance.activo = validated_data.get('activo', instance.activo)
+
+        # Actualizar los ingredientes de la pizza
+        ingredientes = validated_data.get('ingredientes')
+        if ingredientes is not None:
+            instance.ingredientes.set(ingredientes)
+
+        instance.save()
+        return instance
