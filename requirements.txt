@@ -7,3 +7,4 @@ Markdown==3.4.3
 Pillow==9.5.0
 drf-yasg==1.21.5
 django-filter==23.1
+djangorestframework-simplejwt==5.2.2
