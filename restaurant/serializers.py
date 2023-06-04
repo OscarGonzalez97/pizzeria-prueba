@@ -25,3 +25,14 @@ class PizzaDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pizza
         fields = ('nombre', 'precio', 'activo', 'ingredientes')
+
+
+class PizzaCreateSerializer(serializers.ModelSerializer):
+    ingredientes = serializers.PrimaryKeyRelatedField(
+        queryset=Ingrediente.objects.all(),
+        many=True
+    )
+
+    class Meta:
+        model = Pizza
+        fields = ('nombre', 'precio', 'activo', 'ingredientes')

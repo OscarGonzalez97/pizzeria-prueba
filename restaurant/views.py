@@ -1,6 +1,6 @@
-from rest_framework import generics
+from rest_framework import generics, permissions
 from .models import Pizza
-from .serializers import PizzaSerializer, PizzaDetailSerializer
+from .serializers import PizzaSerializer, PizzaDetailSerializer, PizzaCreateSerializer
 
 
 class PizzaListAPIView(generics.ListAPIView):
@@ -16,3 +16,9 @@ class PizzaListAPIView(generics.ListAPIView):
 class PizzaDetailAPIView(generics.RetrieveAPIView):
     queryset = Pizza.objects.all()
     serializer_class = PizzaDetailSerializer
+
+
+class PizzaCreateAPIView(generics.CreateAPIView):
+    queryset = Pizza.objects.all()
+    serializer_class = PizzaCreateSerializer
+    permission_classes = [permissions.IsAdminUser]
