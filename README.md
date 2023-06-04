@@ -18,7 +18,13 @@ La metodologia utilizada para este proyecto fue con un enfoque pragmático ya qu
 * Correr tests `./manage.py test`
 * Ir a `http://localhost:8000/swagger/` para ver documentación de la API
 
+## Instalacion Mac/Linux (con docker)
+* Clonar el repositorio
+* `cd docker/`
+* `docker-compose --project-name pizzeria -f docker-compose-pizzeria.yaml up --build -d`
+* Ir a `http://localhost:8888/swagger/` para ver documentación de la API (puede loguearse con el usuario --> admin@example.com password: admin para las pruebas)
+
 ## Consideraciones
 * No hay un endpoint para agregar ingredientes a una pizza, esta funcionalidad ya esta incluida en la creacion de las pizzas (se debe pasar un array con los ids de los ingredientes que se quiere), la misma cosa para actualizar los ingredientes de la pizza, se actualiza la pizza y se pasa la lista de ingredientes actualizados
 * Como los endpoints eran relativamente sencillos avance con el desarrollo antes que con las pruebas, pero si era de otra forma iba utilizar un desarrollo en base a tests (TDD)
-* El repositorio se creo aproximadamente el 04/06/2023 a las 9:30 aproximadamente y se termino a las 04/06/2023 a las 15:50 con una hora de almuerzo aprox.
+* El repositorio se creo aproximadamente el 04/06/2023 a las 9:30 aproximadamente y se termino a las 04/06/2023 a las 16:05 con una hora de almuerzo
