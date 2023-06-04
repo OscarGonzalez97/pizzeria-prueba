@@ -1,6 +1,6 @@
 from rest_framework import generics
 from .models import Pizza
-from .serializers import PizzaSerializer
+from .serializers import PizzaSerializer, PizzaDetailSerializer
 
 
 class PizzaListAPIView(generics.ListAPIView):
@@ -11,3 +11,8 @@ class PizzaListAPIView(generics.ListAPIView):
         if user.is_staff or user.is_superuser:
             return Pizza.objects.all()
         return Pizza.objects.filter(activo=True)
+
+
+class PizzaDetailAPIView(generics.RetrieveAPIView):
+    queryset = Pizza.objects.all()
+    serializer_class = PizzaDetailSerializer

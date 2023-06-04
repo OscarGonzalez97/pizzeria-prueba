@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Pizza
+from .models import Pizza, Ingrediente
 
 
 class PizzaSerializer(serializers.ModelSerializer):
@@ -11,3 +11,17 @@ class PizzaSerializer(serializers.ModelSerializer):
 
     def get_cantidad_ingredientes(self, obj):
         return obj.ingredientes.count()
+
+
+class IngredienteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Ingrediente
+        fields = ('nombre', 'categoria')
+
+
+class PizzaDetailSerializer(serializers.ModelSerializer):
+    ingredientes = IngredienteSerializer(many=True)
+
+    class Meta:
+        model = Pizza
+        fields = ('nombre', 'precio', 'activo', 'ingredientes')
