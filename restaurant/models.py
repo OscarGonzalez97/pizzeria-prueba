@@ -3,7 +3,7 @@ from django.db import models
 
 class Pizza(models.Model):
     nombre = models.CharField('Nombre', max_length=250)
-    precio = models.PositiveSmallIntegerField('Precio')
+    precio = models.PositiveIntegerField('Precio')
     activo = models.BooleanField('Activo', default=True)
     ingredientes = models.ManyToManyField('Ingrediente', related_name='ingredientes', verbose_name='Ingredientes')
 
